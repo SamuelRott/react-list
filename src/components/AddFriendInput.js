@@ -38,6 +38,7 @@ class AddFriendInput extends Component {
     super(props, context);
     this.state = {
       name: this.props.name || '',
+      sex: this.props.sex || ''
     };
   }
 
@@ -52,6 +53,7 @@ class AddFriendInput extends Component {
   handleSubmit = (e) => {
     // use state set by onNameChange() instead or target.value
     const name = this.state.name.trim();
+    const sex = this.state.sex;
     const validationContainer = document.getElementById('formValidation');
 
     // avoid spamming friends without name
@@ -60,8 +62,11 @@ class AddFriendInput extends Component {
     }
     else if (e.which === 13) {
       validationContainer.classList.remove('notValid');
-      this.props.addFriend(name);
-      this.setState({ name: '' });
+      this.props.addFriend(name, sex);
+      this.setState({
+        name: '',
+        sex: ''
+      });
     }
   }
 
