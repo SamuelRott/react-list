@@ -31,7 +31,6 @@ class FriendList extends Component {
     const firstFriend = lastFriend - friendsPerPage;
     // friends that will be show per page
     const currentFriends = friendsTotal.slice(firstFriend, lastFriend);
-    console.log(currentFriends);
 
     const displayFriends = currentFriends.map((friend, index) => {
       return (
