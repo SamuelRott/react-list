@@ -4,3 +4,14 @@
   border-left: 0;
   border-right: 0;
 }
+.error-message {
+    display: none;
+    padding: 3px;
+    text-align: center;
+}
+
+.notValid >.error-message {
+    display: block;
+    background-color: white;
+    color: red;
+}
