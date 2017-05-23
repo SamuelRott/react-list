@@ -2,3 +2,11 @@
   padding-left: 0;
   margin-bottom: 0;
 }
+:local(.btnAction), :local(.btnAction):active, :local(.btnAction):focus, :local(.btnAction):hover {
+  margin-right: 5px;
+  color: #5C75B0;
+}
+
+button:focus {
+  outline: 0 !important;
+}

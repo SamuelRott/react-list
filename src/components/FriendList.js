@@ -57,7 +57,8 @@ class FriendList extends Component {
         <span
           key={number}
           id={number}
-          onClick={this.handleClick}>
+          onClick={this.handleClick}
+          className={`btn btn-default ${styles.btnAction}`}>
           {number}
         </span>
       );
