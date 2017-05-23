@@ -4,14 +4,17 @@ const initialState = {
   friendsById: [
     {
       name: 'Theodore Roosevelt',
+      sex: 'male',
       starred: true
     },
     {
       name: 'Abraham Lincoln',
+      sex: 'male',
       starred: false
     },
     {
       name: 'George Washington',
+      sex: 'male',
       starred: false
     }
   ]
