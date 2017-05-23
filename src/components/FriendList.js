@@ -16,7 +16,7 @@ class FriendList extends Component {
 
     // maximum number of friends per page
     const friendsPerPage = 2;
-    const friends = this.props.friends;
+    const friendsTotal = this.props.friends;
     const currentPage = this.state.currentPage;
 
     // last friend show on a page, -1 with slice()
@@ -24,10 +24,10 @@ class FriendList extends Component {
     // first friend show on a page
     const firstFriend = lastFriend - friendsPerPage;
     // friends that will be show per page
-    const currentFriends = friends.slice(firstFriend, lastFriend);
+    const currentFriends = friendsTotal.slice(firstFriend, lastFriend);
     console.log(currentFriends);
 
-    const displayFriends = friends.map((friend, index) => {
+    const displayFriends = currentFriends.map((friend, index) => {
       return (
         <FriendListItem
           key={index}
@@ -37,6 +37,11 @@ class FriendList extends Component {
           {...this.props.actions} />
       );
     })
+
+    // calculate the number of pages based on friendsPerPage and friendsTotal
+
+    // display the number of pages as pagination
+
 
     return (
       <ul className={styles.friendList}>
