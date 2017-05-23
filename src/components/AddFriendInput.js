@@ -7,14 +7,19 @@ class AddFriendInput extends Component {
   render () {
     return (
       <div>
-        <input
-          type="text"
-          autoFocus="true"
-          className={classnames('form-control', styles.addFriendInput)}
-          placeholder="Type the name of a friend"
-          value={this.state.name}
-          onChange={this.handleChange}
-          onKeyDown={this.handleSubmit} />
+        <div id="formValidation" className={classnames('validation', styles.notValid)}>
+
+
+          <input
+            type="text"
+            autoFocus="true"
+            className={classnames('form-control', styles.addFriendInput)}
+            placeholder="Type the name of a friend"
+            value={this.state.name}
+            onChange={this.handleChange}
+            onKeyDown={this.handleSubmit} />
+          <p className="error-message">please add a name</p>
+        </div>
         <input type="radio" name="chooseSex" value="female"/> female
         <input type="radio" name="chooseSex" value="male"/> male
       </div>
@@ -34,8 +39,15 @@ class AddFriendInput extends Component {
   }
 
   handleSubmit = (e) => {
-    const name = e.target.value.trim();
-    if (e.which === 13) {
+    // use state set by handleChange() instead or target.value
+    const name = this.state.name.trim();
+    const validationContainer = document.getElementById('formValidation');
+
+    if (e.which === 13 && this.state.name === '') {
+      validationContainer.classList.add('notValid');
+    }
+    else if (e.which === 13) {
+      validationContainer.classList.remove('notValid');
       this.props.addFriend(name);
       this.setState({ name: '' });
     }
