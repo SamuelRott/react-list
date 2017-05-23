@@ -11,6 +11,12 @@ class FriendList extends Component {
     };
   }
 
+  handleClick = (event) => {
+    this.setState({
+      currentPage: event.target.id
+    });
+  }
+
 
   render () {
 
@@ -49,7 +55,9 @@ class FriendList extends Component {
     const displayPages = pages.map(number => {
       return (
         <span
-          key={number}>
+          key={number}
+          id={number}
+          onClick={this.handleClick}>
           {number}
         </span>
       );
