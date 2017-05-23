@@ -7,9 +7,8 @@ class AddFriendInput extends Component {
   render () {
     return (
       <div>
-        <div id="formValidation" className={classnames('validation', styles.notValid)}>
-
-
+        <div id="formValidation"
+             className={classnames('validation', styles.notValid)}>
           <input
             type="text"
             autoFocus="true"
@@ -43,6 +42,7 @@ class AddFriendInput extends Component {
     const name = this.state.name.trim();
     const validationContainer = document.getElementById('formValidation');
 
+    // avoid spamming friends without name
     if (e.which === 13 && this.state.name === '') {
       validationContainer.classList.add('notValid');
     }
