@@ -6,8 +6,7 @@
 }
 .error-message {
     display: none;
-    padding: 3px;
-    text-align: center;
+    padding: 3px 3px 3px 10px ;
 }
 
 .notValid >.error-message {
