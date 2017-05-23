@@ -15,12 +15,20 @@ class AddFriendInput extends Component {
             className={classnames('form-control', styles.addFriendInput)}
             placeholder="Type the name of a friend"
             value={this.state.name}
-            onChange={this.handleChange}
+            onChange={this.onNameChange}
             onKeyDown={this.handleSubmit} />
           <p className="error-message">please add a name</p>
         </div>
-        <input type="radio" name="chooseSex" value="female"/> female
-        <input type="radio" name="chooseSex" value="male"/> male
+        <input
+          type="radio"
+          name="chooseSex"
+          value="female"
+          onChange={this.onSexChange}/> female
+        <input
+          type="radio"
+          name="chooseSex"
+          value="male"
+          onChange={this.onSexChange}/> male
       </div>
 
     );
@@ -33,12 +41,16 @@ class AddFriendInput extends Component {
     };
   }
 
-  handleChange = (e) => {
+  onNameChange = (e) => {
     this.setState({ name: e.target.value });
   }
 
+  onSexChange = (e) => {
+    this.setState({ sex: e.target.value });
+  }
+
   handleSubmit = (e) => {
-    // use state set by handleChange() instead or target.value
+    // use state set by onNameChange() instead or target.value
     const name = this.state.name.trim();
     const validationContainer = document.getElementById('formValidation');
 
