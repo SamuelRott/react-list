@@ -39,14 +39,30 @@ class FriendList extends Component {
     })
 
     // calculate the number of pages based on friendsPerPage and friendsTotal
+    // Math.ceil so we have the right amount pages even with odd amount of friends
+    const pages = [];
+    for (let i = 1; i <= Math.ceil(friendsTotal.length / friendsPerPage); i++) {
+      pages.push(i);
+    }
 
     // display the number of pages as pagination
-
+    const displayPages = pages.map(number => {
+      return (
+        <span
+          key={number}>
+          {number}
+        </span>
+      );
+    });
 
     return (
-      <ul className={styles.friendList}>
-        { displayFriends }
-      </ul>
+      <div>
+        <ul className={styles.friendList}>
+          { displayFriends }
+        </ul>
+        { displayPages }
+      </div>
+
     );
   }
 
