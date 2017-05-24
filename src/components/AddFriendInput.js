@@ -25,9 +25,7 @@ class AddFriendInput extends Component {
             <select value={this.state.value}
                     onChange={this.onSexChange}
                     className={`btn btn-default ${styles.btnAction}`}>
-              <option value="select a sex"
-                      disabled
-                      className={'u-hide'}>select a sex</option>
+              <option value="">select a sex</option>
               <option value="female">female</option>
               <option value="male">male</option>
             </select>
