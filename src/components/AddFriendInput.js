@@ -7,7 +7,8 @@ class AddFriendInput extends Component {
   render () {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className='Form'
+          onSubmit={this.handleSubmit}>
           <div id="formValidation"
                className={classnames('validation', styles.notValid)}>
             <input
