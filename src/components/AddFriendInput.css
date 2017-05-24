@@ -4,6 +4,14 @@
   border-left: 0;
   border-right: 0;
 }
+:local(.btnAction), :local(.btnAction):active, :local(.btnAction):focus, :local(.btnAction):hover {
+  color: #5C75B0;
+}
+
+button:focus {
+  outline: 0 !important;
+}
+
 .error-message {
     display: none;
     padding: 3px 3px 3px 10px ;
