@@ -7,6 +7,31 @@ import { FriendList, AddFriendInput } from '../components';
 
 class FriendListApp extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: 1
+    };
+  }
+
+  currentFriends = () => {
+    const friendsPerPage = 2;
+    const currentPage = this.state.currentPage;
+    const friendsTotal = this.props.friendlist.friendsById;
+
+    // last friend show on a page, -1 with slice()
+    const lastFriend = currentPage * friendsPerPage;
+    // first friend show on a page
+    const firstFriend = lastFriend - friendsPerPage;
+    // friends that will be show per page
+    const currentFriends = friendsTotal.slice(firstFriend, lastFriend);
+    return currentFriends;
+  }
+
+  handlePageClick = (currentPage) => {
+    this.setState({currentPage});
+  };
+
   render () {
     const { friendlist: { friendsById }} = this.props;
 
@@ -20,7 +45,11 @@ class FriendListApp extends Component {
       <div className={styles.friendListApp}>
         <h1>The FriendList</h1>
         <AddFriendInput addFriend={actions.addFriend} />
-        <FriendList friends={friendsById} actions={actions} />
+        <FriendList currentFriends={this.currentFriends()}
+                    allFriends={friendsById}
+                    actions={actions}
+                    currentPage={this.state.currentPage}
+                    handlePageClick={this.handlePageClick} />
       </div>
     );
   }
