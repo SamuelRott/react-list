@@ -33,11 +33,11 @@ class FriendList extends Component {
     // friends that will be show per page
     const currentFriends = friendsTotal.slice(firstFriend, lastFriend);
 
-    const displayFriends = currentFriends.map((friend, index) => {
+    const displayFriends = currentFriends.map((friend) => {
       return (
         <FriendListItem
-          key={index}
-          id={index}
+          key={friendsTotal.indexOf(friend)}
+          id={friendsTotal.indexOf(friend)}
           sex={friend.sex}
           name={friend.name}
           starred={friend.starred}
