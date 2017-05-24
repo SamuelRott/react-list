@@ -76,7 +76,10 @@ class FriendList extends Component {
         <ul className={styles.friendList}>
           { displayFriends }
         </ul>
-        { displayPages }
+        <div className="u-paddingS">
+          { displayPages }
+        </div>
+
       </div>
 
     );
