@@ -31,7 +31,7 @@ for this task we needed to:
 
 Here we are using jest, jest give us great overview about our tests and [expect](https://github.com/mjackson/expect) a nice and lean syntax.
 
-we are mainly testing 3 behaviour:
+we are mainly testing 3 behaviours:
 1. the presences of component and element in our app
 2. the state or our app before any actions
 3. the structure of all our Actions
