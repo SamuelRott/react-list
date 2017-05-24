@@ -37,6 +37,7 @@ class FriendListItem extends Component {
 FriendListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
+  sex: PropTypes.string.isRequired,
   starred: PropTypes.bool,
   starFriend: PropTypes.func.isRequired
 };
