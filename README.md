@@ -15,7 +15,7 @@ You can see a demonstration at [http://react-interview-exercise.surge.sh/](http:
 **Please add pagination support to the list when there are more than 2 entries**
 
 The solution to this task was implemented in the FriendList component.
-The logic is based on how many friends we have per page, the first and the last to be show.
+The logic is based on how many friends there are per page, the first and the last to be shown.
 
 
 **Please add option to select sex of a friend male/female and display it**

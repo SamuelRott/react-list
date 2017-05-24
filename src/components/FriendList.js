@@ -27,7 +27,6 @@ class FriendList extends Component {
       pages.push(i);
     }
 
-    // display the number of pages as pagination
     return pages.map(number => {
       return (
         <span
@@ -43,7 +42,6 @@ class FriendList extends Component {
   }
 
   renderFriends = () => {
-
     // maximum number of friends per page
     const friendsPerPage = 2;
     const friendsTotal = this.props.friends;
@@ -70,9 +68,7 @@ class FriendList extends Component {
   }
 
   render () {
-
     const displayPages = this.renderPages();
-
     const displayFriends = this.renderFriends();
 
     return (
