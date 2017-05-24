@@ -14,8 +14,9 @@ You can see a demonstration at [http://react-interview-exercise.surge.sh/](http:
 
 **Please add pagination support to the list when there are more than 2 entries**
 
-The solution to this task was implemented in the FriendList component.
 The logic is based on how many friends there are per page, the first and the last to be shown.
+
+The solution to this task was first implemented in the FriendList component but after refactoring the implementation took place in FriendListApp, this giving us a better control(like active page).
 
 
 **Please add option to select sex of a friend male/female and display it**
@@ -38,10 +39,10 @@ we are mainly testing 3 behaviours:
 
 ### Dependencies
 
-Here we added [prop-types](https://github.com/facebook/prop-types), as recomended by React.JS, prop-types from `react` being deprecated.
+Here we added [prop-types](https://github.com/facebook/prop-types), as recommended by React.JS, prop-types from `react` being deprecated.
 
 ### DevDependencies
 
 Here we added:
 1. [enzyme](https://github.com/airbnb/enzyme) as a test utility , mainly for its easy to use and intuitive syntax.
-2. [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) is needed when testing React apps wiht enzyme.
+2. [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) is needed when testing React apps with enzyme.
