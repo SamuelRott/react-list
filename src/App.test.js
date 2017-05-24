@@ -49,3 +49,33 @@ it('AddFriendInput State.sex should be empty string', () => {
   	var wrapper = shallow(<AddFriendInput />);
   	expect(wrapper.state().sex).toEqual("");
 });
+
+// Test all sactions
+it('should create an action to add a friend', () => {
+  const name = 'Samuel';
+  const sex = 'male';
+  const expectedAction = {
+    type: types.ADD_FRIEND,
+    name,
+    sex
+  }
+  expect(actions.addFriend(name, sex)).toEqual(expectedAction);
+})
+
+it('should create an action to delete a friend', () => {
+  const id = 1;
+  const expectedAction = {
+    type: types.DELETE_FRIEND,
+    id
+  }
+  expect(actions.deleteFriend(id)).toEqual(expectedAction);
+})
+
+it('should create an action to starred friend', () => {
+  const id = 1;
+  const expectedAction = {
+    type: types.STAR_FRIEND,
+    id
+  }
+  expect(actions.starFriend(id)).toEqual(expectedAction);
+})
