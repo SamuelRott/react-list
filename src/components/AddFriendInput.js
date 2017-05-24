@@ -19,16 +19,22 @@ class AddFriendInput extends Component {
             onKeyDown={this.handleSubmit} />
           <p className="error-message">please add a name</p>
         </div>
-        <input
-          type="radio"
-          name="chooseSex"
-          value="female"
-          onChange={this.onSexChange}/> female
-        <input
-          type="radio"
-          name="chooseSex"
-          value="male"
-          onChange={this.onSexChange}/> male
+        <div className={'u-flex u-paddingS'}>
+          <select value={this.state.value}
+                  onChange={this.onSexChange}
+                  className={`btn btn-default ${styles.btnAction}`}>
+            <option value="select a sex"
+                    disabled
+                    className={'u-hide'}>select a sex</option>
+            <option value="female">female</option>
+            <option value="male">male</option>
+          </select>
+          <button
+            type="submit"
+            value="Submit"
+            onSubmit={this.handleSubmit}
+            className={`btn btn-default u-marginLeft-auto ${styles.btnAction}`}>Submit</button>
+        </div>
       </div>
 
     );
@@ -38,7 +44,8 @@ class AddFriendInput extends Component {
     super(props, context);
     this.state = {
       name: this.props.name || '',
-      sex: this.props.sex || ''
+      sex: this.props.sex || '',
+      value: 'select a sex'
     };
   }
 
@@ -47,7 +54,15 @@ class AddFriendInput extends Component {
   }
 
   onSexChange = (e) => {
-    this.setState({ sex: e.target.value });
+    // target the <select> element
+    const selectBox = event.currentTarget;
+    // target the selected <option>
+    const selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    // set the state with the new selected value
+    this.setState({
+      sex: selectedValue,
+      value: selectedValue
+    });
   }
 
   handleSubmit = (e) => {
