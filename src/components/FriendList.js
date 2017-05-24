@@ -18,8 +18,31 @@ class FriendList extends Component {
     });
   }
 
+  renderPages = () => {
+    const friendsPerPage = 2;
+    const friendsTotal = this.props.friends;
 
-  render () {
+    const pages = [];
+    for (let i = 1; i <= Math.ceil(friendsTotal.length / friendsPerPage); i++) {
+      pages.push(i);
+    }
+
+    // display the number of pages as pagination
+    return pages.map(number => {
+      return (
+        <span
+          key={number}
+          id={number}
+          onClick={this.handleClick}
+          className={`btn btn-default ${styles.btnAction} `}>
+          {number}
+        </span>
+      );
+    });
+
+  }
+
+  renderFriends = () => {
 
     // maximum number of friends per page
     const friendsPerPage = 2;
@@ -33,7 +56,7 @@ class FriendList extends Component {
     // friends that will be show per page
     const currentFriends = friendsTotal.slice(firstFriend, lastFriend);
 
-    const displayFriends = currentFriends.map((friend) => {
+    return currentFriends.map((friend) => {
       return (
         <FriendListItem
           key={friendsTotal.indexOf(friend)}
@@ -44,26 +67,13 @@ class FriendList extends Component {
           {...this.props.actions} />
       );
     })
+  }
 
-    // calculate the number of pages based on friendsPerPage and friendsTotal
-    // Math.ceil so we have the right amount pages even with odd amount of friends
-    const pages = [];
-    for (let i = 1; i <= Math.ceil(friendsTotal.length / friendsPerPage); i++) {
-      pages.push(i);
-    }
+  render () {
 
-    // display the number of pages as pagination
-    const displayPages = pages.map(number => {
-      return (
-        <span
-          key={number}
-          id={number}
-          onClick={this.handleClick}
-          className={`btn btn-default ${styles.btnAction}`}>
-          {number}
-        </span>
-      );
-    });
+    const displayPages = this.renderPages();
+
+    const displayFriends = this.renderFriends();
 
     return (
       <div>
