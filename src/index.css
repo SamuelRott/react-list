@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.u-flex {
+  display: flex;
+}
+.u-hide {
+  display: none;
+}
+.u-paddingS {
+  padding: 8px;
+}
+.u-marginLeft-auto {
+  margin-left: auto;
+}
