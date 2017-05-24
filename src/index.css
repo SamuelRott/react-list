@@ -6,9 +6,6 @@ body {
 .u-flex {
   display: flex;
 }
-.u-hide {
-  display: none;
-}
 .u-paddingS {
   padding: 8px;
 }
